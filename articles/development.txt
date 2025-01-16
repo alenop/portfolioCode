@@ -1,0 +1,17 @@
+Présentation de l’entreprise :
+L’entreprise TéO, dispose d’un logiciel de gestion d’activité nommé TéO. Il constitue l’essentiel de l’activité de l’entreprise, grâce a ce logiciel de gestion, des entreprises telles que des centres de bilans de compétences, des organismes de formation ou pour du médico-social.  Par exemple Catalys Conseil, Réseau Ecna ou Maia et bien d’autres.
+
+Besoin demandé
+Catalys nous a d’ailleurs demandé s’il était possible de simplifier les processus de synchronisation avec pôle emploi sur l’agenda TéO. En effet Catalys devait après avoir créer des rendez-vous sur TéO les donner a pôle emploi pour que pôle emploi les propose et ensuite devait redonner toutes les informations des personnes allant a ces rendez-vous a catalys par téléphone, excel ou word. Ce qui était ennuyant et fatiguant. Suite a quoi nous avons pensé à proposer un processus d’importation automatique de pôle emploi vers l’agenda TéO.
+
+Ma Partie
+Et c’est là que j’interviens ! J’ai d’abord fait un import direct de pôle emploi vers TéO en prenant les données de pôle emploi sur leur API, les enregistrer au format TéO, puis les envoyer vers TéO. Ça parait simple dit comme ça mais l’environnement technique n’était pas simple à maîtriser, l’architecture en DDD (domain driven devellopment), demande une communication a l’aide d’évènements avec les bons paramètres et les bonnes variables tout en ayant correctement configurer l’ordinateur. En cours de production, en réunion avec mon tuteur on est arrivé à la conclusion qu’il fallait séparer l’import en plusieurs étapes et gérer certains cas d’erreur différemment. 
+Après Réunion 
+C’est pourquoi j’ai remodelé le code pour correspondre aux étapes suivantes :
+ 
+-1 Récupérer les données de pole Emploi par rapport à un Client (EX : Catalys) donné.
+-2 Transformer ces données au format TéO.
+-3 Envoyer ces données formatées dans un importer avec une liste d’action à exécuter en fonction des données fournisses.
+-4 Exécuter ces commandes/actions avec une gestion spécifique pour certains cas d’erreur (L’activité du rendez-vous n’existe pas dans TéO, La personne existe déjà dans TéO mais pas son dossier à ce rendez-vous etc).
+Conclusion
+De cette manière j’ai pu restructurer le code proprement. Ce projet a pour moi été comme un rite d’initiation j’ai dû m’adapter à l’environnement et le design du DDD. J’ai réussi ces objectifs et rendu un code propre. Le projet n’est pas entièrement fini car il reste à le lancer automatiquement toutes les nuit a une heure donnée mais j’ai fini ma partie et le projet est adaptable à de futurs besoins.
