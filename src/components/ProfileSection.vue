@@ -37,7 +37,8 @@
     },
     refLinks:{
       type:Array,
-      default:[{name:"code source du site",link:"http://google.com"}]
+      default:[{name:"code source du site",link:"https://github.com/alenop/portfolioCode"},{name:"Profil linkedin",link:"https://www.linkedin.com/in/pierre-sorli/"}]
+
     }
 
   })
