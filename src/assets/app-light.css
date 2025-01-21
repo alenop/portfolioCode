@@ -1,0 +1,11 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+  }
+  

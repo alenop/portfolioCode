@@ -1,0 +1,231 @@
+[
+  {
+    "id":"automatisation",
+    "subtitle": "Automatisation des rendez-vous",
+    "content": "L’entreprise TéO dispose d’un logiciel de gestion d’activité nommé TéO. Il constitue l’essentiel de l’activité de l’entreprise. Grâce à ce logiciel de gestion, des entreprises telles que des centres de bilans de compétences, des organismes de formation ou des centres médico-sociaux peuvent gérer leurs rendez-vous. Par exemple, Catalys Conseil, Réseau Ecna ou Maia, et bien d’autres.",
+    "subsections": [
+      {
+        "subtitle": "Besoin exprimé",
+        "content": "Catalys nous a d’ailleurs demandé s’il était possible de simplifier les processus de synchronisation avec Pôle emploi sur l’agenda TéO. En effet, Catalys devait, après avoir créé des rendez-vous sur TéO, les donner à Pôle emploi pour que Pôle emploi les propose. Ensuite, Pôle emploi devait redonner toutes les informations des personnes allant à ces rendez-vous à Catalys par téléphone, Excel ou Word. Ce processus étant très fastidieux, nous avons proposé un processus d’importation automatique de Pôle emploi vers l’agenda TéO."
+      },
+      {
+        "subtitle": "Réunion",
+        "content": "Nous avons réfléchi à tout ce dont nous avions besoin pour répondre à la demande et comment l'intégrer à l'architecture actuelle. Car si nous pouvons répondre à la demande, c'est encore mieux si nous pouvons rajouter des processus similaires ou modifier les processus actuels rapidement. Il faut toujours penser à l'avenir. Nous avons conclu que nous allions faire d'autres importations avec d'autres organismes à l'avenir. Il nous fallait donc un importateur suffisamment générique pour être adapté à des importations futures et suffisamment simple pour répondre à la demande client rapidement."
+      },
+      {
+        "subtitle": "Ma partie",
+        "content": "Et c’est là que j’interviens ! Il m’a été demandé de faire l'importateur général de manière simple. Pour cela, j'ai découpé le code à effectuer en plusieurs étapes distinctes.",
+        "subsections": [
+          {
+            "subtitle": "Étape 1",
+            "content": "J’ai fait un import direct des données de l'API de Pôle emploi vers TéO."
+          },
+          {
+            "subtitle": "Étape 2",
+            "content": "Les enregistrer au format TéO."
+          },
+          {
+            "subtitle": "Étape 3",
+            "content": "Les envoyer vers TéO."
+          }
+        ]
+      },
+      {
+        "subtitle": "Étapes finales",
+        "content": "En cours de production, en réunion avec mon tuteur, nous sommes arrivés à la conclusion qu’il fallait séparer l’import en plusieurs étapes et gérer certains cas d’erreur différemment. J'ai dû découper encore plus l'étape 1.",
+        "subsections": [
+          {
+            "subtitle": "Étape 1",
+            "content": "Récupérer les données de Pôle emploi par rapport à un client (ex. : Catalys) donné."
+          },
+          {
+            "subtitle": "Étape 2",
+            "content": "Transformer ces données au format TéO."
+          },
+          {
+            "subtitle": "Étape 3",
+            "content": "Envoyer ces données formatées dans un importeur avec une liste d’actions à exécuter en fonction des données fournies."
+          },
+          {
+            "subtitle": "Étape 4",
+            "content": "Exécuter ces commandes/actions avec une gestion spécifique pour certains cas d’erreur (l’activité du rendez-vous n’existe pas dans TéO, la personne existe déjà dans TéO mais pas son dossier pour ce rendez-vous, etc.)."
+          }
+        ]
+      },
+      {
+        "subtitle": "Conclusion sur ce projet",
+        "content": "De cette manière, j’ai pu restructurer le code proprement. Ce projet a pour moi été comme un rite d’initiation : j’ai dû m’adapter à l’environnement. J’ai réussi ces objectifs et rendu un code propre. Le projet n’est pas entièrement fini, car il reste à le lancer automatiquement toutes les nuits à une heure donnée. Mais j’ai fini ma partie et le projet est adaptable à de futurs besoins."
+      }
+    ]
+  },
+    {
+        "id": "solid-principles",
+        "title": "Maîtrise du développement logiciel selon les normes SOLID",
+        "content": "SOLID est un acronyme qui regroupe cinq principes de conception orientée objet qui, ensemble, visent à rendre le code plus flexible, réutilisable, et facile à maintenir. Voici les principes de SOLID détaillés :",
+        "subsections": [
+          {
+            "subtitle": "S Responsabilité unique",
+            "content": "Séparer chaque classe/Objet de telle sorte qu’il ne s’occupe que d’une chose et ainsi pouvoir le remplacer/retirer/ajouter à un autre projet comme un composant."
+          },
+          {
+            "subtitle": "O Fermé à la modification directe mais ouvert aux extensions",
+            "content": "Dans la mesure du possible éviter qu’on doive modifier directement le code pour maintenir ou faire évoluer le projet en faisant en sorte qu’au contraire on puisse switch facilement les composants pour résoudre ces problèmes."
+          },
+          {
+            "subtitle": "L Substitution",
+            "content": "Si un Objet A fonctionne bien dans un environnement donné et si un Objet B est un sous-type/hérite de A. Alors L’objet B doit pouvoir remplacer sans aucune difficulté l’objet A dans l’environnement en question."
+          },
+          {
+            "subtitle": "I Séparation des interfaces",
+            "content": "Faire un élément spécifique à chaque client plutôt qu’un élément qui s’occupe de tout. Ça permet de réutiliser le composant spécifique dans un autre contexte."
+          },
+          {
+            "subtitle": "D Dépendances",
+            "content": "Dans la conception, admettons qu’on ait besoin de 3 éléments : un élément A, un élément B et un élément C. Les éléments A, B et C peuvent être réalisés de 10 manières différentes. Si on doit faire évoluer/remplacer les éléments, on ne doit pas faire un élément A bis, mais un second élément A. Dit autrement, on ne doit pas dépendre de la manière dont a implémenté l’élément A mais bien du plan de construction de l’élément A, ses données d’entrée, sortie, et temps d’exécution par exemple."
+          },
+          {
+            "subtitle": "Exemple de la compétence mise en œuvre",
+            "content": "Dans la réalisation par rapport à Pôle Emploi, j’ai restructuré mon code en différentes classes et fonctions exerçant des responsabilités uniques, ce qui m’a permis de faire du code propre. Concrètement, toutes les étapes de l’après Réunion étaient faites dans plusieurs classes mais les responsabilités n’étaient pas bien séparées. Après les avoir réparties dans les étapes, j’ai pu permettre de réutiliser ces composants (classes) pour de futures réalisations et une maintenance ou modification nettement plus facile."
+             },
+              {
+                "subtitle": "Regard Critique et évolution",
+                "content": "Je n’ai pas réussi à appliquer 100% de cette compétence au début ou même à l’heure actuelle. Cette compétence a de nombreux aspects complexes et subtils. J’ai réussi à bien l’appliquer dans mes projets étudiants que je maîtrisais bien, mais pas avec cet autre langage qu’est JavaScript. Cette compétence étant la pierre angulaire de mon expertise d’ingénierie logicielle, il est nécessaire que je la perfectionne au fur et à mesure de mes expériences. Elle sera au cœur de mes projets personnels ou professionnels."
+              }
+        ]
+      },
+      {
+        "id": "Refactoring",
+        "title": "Le Refactoring",
+        "content": "Restructurer/formatter/factoriser le code en une architecture plus propre/efficace est la définition générale.",
+        "subsections": [
+          {
+            "subtitle": "Définition",
+            "content": "Restructurer/formater/factoriser le code en une architecture plus propre/efficace est la définition générale. Plus en détail, cela consiste principalement à changer la manière d’exécuter le code, pour soit définir une fonction, que l’on va appeler à différents endroits, plutôt que de définir plusieurs fonctions qui font exactement la même chose à des endroits différents du code. Soit généraliser le code pour pouvoir le mettre dans une seule fonction appelée avec différents paramètres. À cette fin, il est souvent nécessaire de nettoyer le code, et de le séparer en sections distinctes claires. Au travers de ce travail de séparation, les éléments proches les uns des autres seront mis à côté les uns des autres et donc comparés. Par conséquent, on pourra aisément voir si on peut les combiner/fusionner."     },
+          {
+            "subtitle": "Plus-value pour l’entreprise",
+            "content": "Cette compétence est utile dans la vie d’une entreprise pour de multiples raisons, notamment la maintenabilité du code et son évolution. Avec un code clair et séparé de manière claire dans un modèle/design précis, un nouveau développeur peut aisément comprendre comment le code fonctionne, et par conséquent travailler dessus de manière rapide et efficace. De plus, les bugs sont généralement plus vite repérés et neutralisés. Avoir un logiciel/site avec moins de bugs pour les clients et des améliorations plus rapides apporte une plus-value indéniable à l’entreprise."
+          },
+          {
+            "subtitle": "Exemples concrets en entreprise",
+            "content": "Pour donner un exemple dans le cadre de PrestApi, j’ai restructuré le code, pour, du côté front, créer un élément de construction/plan qu’on utilise pour fabriquer l’icône visuelle des applications externes, évitant ainsi plusieurs manières de créer une icône visuelle pour un fonctionnement que l’on veut homogène. Par exemple, si j’avais juste créé un autre visuel de plus, en copiant/m’inspirant de ce qui était déjà fait, les visuels auraient été bien et tout aurait été apparemment ok, satisfaisant. Mais si jamais on doit faire évoluer ce code, c’est-à-dire changer d’apparence, l’agencement des éléments, etc., on aurait dû le faire sur toutes les icônes et vérifier que les icônes restent jolies et comme avant. En plus de prendre beaucoup de temps, on peut faire des erreurs et/ou oublis. Alors qu’avec un modèle établi, on doit modifier le modèle, vérifier une fois que tout va bien, et c’est tout, pas d’oublis. Dans la même idée, les tests unitaires sont très utiles car ils permettent de vérifier instantanément que l’on n’a pas cassé les fonctionnements internes de notre site/logiciel. J’ai de manière similaire, du côté back, repris et restructuré mon code pour le rendre plus clair et le séparer en sections claires. Il a été nécessaire de le refaire plusieurs fois, au fur et à mesure que ma vue d’ensemble de la fonctionnalité s’améliorait, grâce notamment à mon tuteur et mes réflexions sur le travail effectué."
+          },
+          {
+            "subtitle": "les plans pour l’amélioration",
+            "content": "Il faut que je sache/connaisse plus de design pattern (plan de structure du code) différents afin de respecter le design utilisé dans l’architecture et ne pas la corrompre/salir. J’ai besoin de voir les choses avec plus de recul pour pouvoir mieux préparer au long terme le code et par conséquent réduire le nombre de restructuration/reformatage nécessaires."
+          }
+        ]
+      },
+      {
+        "id": "values",
+        "title": "Mes Valeurs",
+        "content": "Les valeurs qui me guident dans ma vie personnelle et professionnelle.",
+        "subsections": [
+          {
+            "subtitle": "L'honnêteté",
+            "content": "Pour moi, la transparence et l'intégrité ne sont pas seulement des qualités souhaitables, mais des fondations essentielles dans mes interactions. Être honnête, c'est non seulement dire la vérité, mais aussi agir de manière cohérente avec ses convictions, même lorsque cela implique de faire face à des défis ou à des désaccords. Dans le cadre professionnel, je crois qu'une communication claire et honnête permet d'établir des relations de confiance avec les collègues, les clients et les partenaires. Sur le plan personnel, l'authenticité est un pilier des relations solides et durables. Rester fidèle à mes principes m'aide à naviguer dans les situations complexes tout en restant aligné avec mes valeurs profondes."
+          },
+          {
+            "subtitle": "L'engagement",
+            "content": "Lorsque je m'investis dans un projet, je le fais avec détermination. Cela implique d'être persévérant, de rester motivé même face à des obstacles, et de ne jamais perdre de vue l'objectif final. Dans un contexte professionnel, mon engagement se manifeste par ma volonté d'apporter des solutions de qualité, de respecter les délais et de répondre aux attentes des parties prenantes. Sur le plan personnel, cela se traduit par ma détermination à honorer mes responsabilités et à poursuivre mes passions avec sérieux."
+          },
+          {
+              "subtitle": "L'empathie",
+              "content": "L'empathie est pour moi une valeur centrale qui me permet de construire des relations positives et enrichissantes avec les autres. Être attentif aux besoins, aux émotions et aux perspectives des autres est essentiel, tant dans la vie professionnelle que personnelle. Dans mon travail, cela signifie avant tout écouter activement les attentes des clients ou des collègues, poser les bonnes questions pour clarifier leurs besoins et proposer des solutions adaptées et concrètes. Cette capacité à comprendre les préoccupations des autres m'aide à offrir un accompagnement pertinent et à orienter les projets vers des résultats qui répondent réellement aux attentes. Dans ma vie personnelle, l'empathie joue un rôle tout aussi important en renforçant les échanges constructifs et en m'incitant à être un soutien efficace, capable d'apporter des réponses adaptées aux situations rencontrées par mes proches."
+          },
+            
+          {
+            "subtitle": "La rigueur",
+            "content": "La rigueur est une qualité que je m'efforce d'appliquer à tous les aspects de ma vie. Dans un contexte professionnel, cela signifie travailler de manière méthodique, respecter les procédures et les normes établies, et maintenir un haut niveau de précision dans tout ce que je fais. Je crois fermement qu'une bonne organisation et une planification efficace sont la clé pour atteindre des résultats de qualité. J'attache également une grande importance à la vérification des détails, car cela garantit l'exactitude. Plus qu'une qualité j'aime a penser que la rigueur est une discipline qu'il faut maintenir."
+          }
+        ]
+      },
+      
+      {
+        "id": "summary",
+        "title": "L'état de l'art de mes compétences",
+        "content": "Actuellement, je me spécialise dans le développement web applicatif, principalement en PHP et TypeScript, où j'ai acquis une solide expertise. L'une de mes compétences clés est le refactoring, une pratique qui me permet de restructurer et d'optimiser le code existant, garantissant des applications plus efficaces et maintenables. En plus des compétences techniques, je m'appuie sur des qualités humaines telles que l'empathie, la rigueur, et l'honnêteté, qui enrichissent mes collaborations professionnelles. Le refactoring reste cependant la compétence qui me démarque le plus, car elle reflète ma capacité à améliorer continuellement les bases existantes.",
+        "subsections": [
+          {
+            "subtitle": "Mes projets d’acquisition de compétences",
+            "content": "À court terme, je souhaite explorer de nouvelles méthodes de travail pour améliorer encore mon efficacité. Mon objectif principal est de doubler ma vitesse de travail dans les prochains mois. Pour y parvenir, je vais me concentrer sur des approches d'optimisation, des outils de productivité, et de meilleures pratiques dans la gestion de projets et le développement."
+          },
+          {
+            "subtitle": "Relation entre mes compétences et mon projet professionnel",
+            "content": "Mon projet professionnel actuel consiste à développer une partie d’une application pour mon entreprise, où mes compétences en refactoring et développement rigoureux sont essentielles pour fournir du code propre et maintenable. En acquérant de nouvelles méthodes de travail, je vais pouvoir combler certaines lacunes dans mon flux de travail actuel, améliorant ainsi ma productivité et contribuant davantage à l'efficacité de l'équipe dans son ensemble. Ces nouvelles compétences s'aligneront avec mes objectifs de carrière, m'aidant à évoluer vers des projets plus ambitieux et plus complexes."
+          }
+        ]
+      },{
+        "id": "interface_utilisateur",
+        "title": "Interface utilisateur",
+        "content": "Lors de la demande d'automatisation de PrestAppli (Automatisation des rendez-vous), en plus de développer la partie technique côté serveur, j'avais également pour mission de concevoir une interface utilisateur accessible et intuitive.",
+        "subsections": [
+          {
+            "subtitle": "Décision initiale",
+            "content": "Après une réunion avec mes collègues, il a été décidé que l'interface s'inspirerait du design existant sur le site. Elle serait intégrée dans une nouvelle catégorie nommée 'Options', destinée à regrouper les futures configurations liées à l'automatisation."
+          },
+          {
+            "subtitle": "Analyse et conception",
+            "content": "J'ai exploré les interfaces des autres pages similaires pour identifier les éléments clés à inclure. L'objectif était de fournir une vue claire et concise de la configuration actuelle et des instructions détaillées pour en créer une nouvelle si nécessaire."
+          },
+          {
+            "subtitle": "Choix de présentation",
+            "content": "J'ai opté pour une représentation visuelle qui affiche la configuration actuelle si elle existe, ou une vue simplifiée en son absence. Ces choix visuels permettent une compréhension immédiate tout en évitant une surcharge d'informations."
+          },
+          {
+            "subtitle": "Révisions et ajustements",
+            "content": "Initialement, j'avais inclus davantage d'informations sur une seule ligne, ce qui rendait l'interface confuse. Pour résoudre cela, j'ai rendu certaines informations disponibles sur demande, offrant une meilleure clarté et une navigation simplifiée."
+          },
+          {
+            "subtitle": "Conclusion",
+            "content": "Cette réalisation inclut une interface utilisateur claire et évolutive. Une photo illustrant l'interface actuelle sera ajoutée ultérieurement."
+          }
+        ]
+      },
+      {
+        "id": "ddd",
+        "title": "Domain-Driven Design (DDD)",
+        "content": "Le Domain-Driven Design (DDD) est une approche de développement logiciel, qui met l'accent sur une compréhension approfondie du domaine métier, et sur une collaboration étroite entre les experts métier et les développeurs. Cette méthode vise à cadrer le logiciel sur les besoins réels des utilisateurs.",
+        "subsections": [
+          {
+            "subtitle": "Contexte de mise en place",
+            "content": "le DDD se divise en deux niveaux : un niveau se concentrant sur la définition le cadre des besoins du métier, avec toutes les différrentes zones de besoin du métier et comment ils interragisent entre eux. Par exemple si on veux faire une application téléphone pour des médecins, ils ont besoin d'un répertoire de leurs clients, d'une bibliothèque de connaissance médicales et d'un agenda pour organiser leurs rendez-vous. Et tout ça doit se faire avec un entretien avec un médecin afin d'être au plus proche des réels besoin du médecin. L'autre niveau quant a lui se concentre sur chaque zone pour voir plus en détail ce dont il y a besoin."
+          },
+          {
+            "subtitle": "Avantages et défis",
+            "content": "L'un des principaux avantages de DDD est qu'il permet de mieux aligner les solutions techniques avec les besoins métier, tout en réduisant les malentendus. Cependant, il peut être complexe à mettre en œuvre, nécessitant un investissement important en temps et en collaboration avec les experts métier."
+          },
+          {
+            "subtitle": "Applications dans la pratique",
+            "content": "le DDD est particulièrement utile dans les projets complexes où une compréhension approfondie du domaine est essentielle. Son approche centrée sur le domaine aide à concevoir des systèmes modulaires et évolutifs, tout en évitant les solutions génériques qui manquent de contexte métier. Et ainsi, permet une offre beaucoup plus attractive sur le marché, a condition de bien se mettre en valeur. "
+          }
+        ]
+      },
+      
+      {
+        "id": "demande_signature",
+        "title": "Demande de signature",
+        "content": "Pour répondre au besoin des clients de gérer des signatures électroniques en dehors de l’application TéO, un système externe a été adopté pour garantir sécurité et efficacité.",
+        "subsections": [
+          {
+            "subtitle": "Analyse",
+            "content": "Nous avons évalué plusieurs prestataires externes selon leurs prix, leur sécurité et leur compatibilité technique. Eurosign a été retenu grâce à sa documentation claire, ses certifications de sécurité et la possibilité de négocier les tarifs pour des besoins spécifiques."
+          },
+          {
+            "subtitle": "Mise en place",
+            "content": "La mise en œuvre nécessite une interface Téo de configuration et un chemin API pour transmettre les données des utilisateurs. Cette architecture relie l’application TéO à Eurosign pour envoyer les demandes de signature."
+          },
+          {
+            "subtitle": "Partie technique",
+            "content": "Le développement comprend la configuration des utilisateurs, le traitement des données, et la liaison avec l'API d'Eurosign pour garantir un processus fluide et sécurisé."
+          },
+          {
+            "subtitle": "Conclusion",
+            "content": "Le projet est presque terminé, avec la signature électronique en cours de finalisation. Cette solution offre une base sécurisée et extensible pour gérer les signatures électroniques des clients."
+          }
+        ]
+      }
+      
+      
+]
+
+  
