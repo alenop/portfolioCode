@@ -44,7 +44,8 @@ import articles from '@/data/articles.json';
 const props = defineProps({
   id: {
     type: String,
-    required: true
+    required: true,
+    default:"values"
   }
 });
 
@@ -84,10 +85,10 @@ function scrollToSubsection(subsection) {
 
 .summary {
   position: sticky;
-  top: 20px; /* Keeps the summary 20px from the top */
+  top: 20px;
   width: 25%;
   padding-right: 20px;
-  max-height: calc(100vh - 40px); /* Prevents the summary from taking too much vertical space */
+  max-height: calc(100vh - 40px);
   overflow-y: auto; /* Allows scrolling if content exceeds the available space */
 }
 
@@ -100,7 +101,7 @@ function scrollToSubsection(subsection) {
 }
 
 .highlight {
-  background-color: green; /* Highlight background in red */
+  background-color: green; /* Highlight background in green */
   color: white; /* Make the text white when highlighted */
 }
 
