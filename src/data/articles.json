@@ -96,11 +96,11 @@
       {
         "id": "Refactoring",
         "title": "Le Refactoring",
-        "content": "Restructurer/formatter/factoriser le code en une architecture plus propre/efficace est la définition générale.",
+        "content": "Restructurer/formater/factoriser le code en une architecture plus propre/efficace est l'idée globale du refactoring",
         "subsections": [
           {
             "subtitle": "Définition",
-            "content": "Restructurer/formater/factoriser le code en une architecture plus propre/efficace est la définition générale. Plus en détail, cela consiste principalement à changer la manière d’exécuter le code, pour soit définir une fonction, que l’on va appeler à différents endroits, plutôt que de définir plusieurs fonctions qui font exactement la même chose à des endroits différents du code. Soit généraliser le code pour pouvoir le mettre dans une seule fonction appelée avec différents paramètres. À cette fin, il est souvent nécessaire de nettoyer le code, et de le séparer en sections distinctes claires. Au travers de ce travail de séparation, les éléments proches les uns des autres seront mis à côté les uns des autres et donc comparés. Par conséquent, on pourra aisément voir si on peut les combiner/fusionner."     },
+            "content": "le Refactoring consiste principalement à changer la manière d’exécuter le code, pour soit définir une fonction, que l’on va appeler à différents endroits, plutôt que de définir plusieurs fonctions qui font exactement la même chose à des endroits différents du code. Soit généraliser le code pour pouvoir le mettre dans une seule fonction appelée avec différents paramètres. À cette fin, il est souvent nécessaire de nettoyer le code, et de le séparer en sections distinctes claires. Au travers de ce travail de séparation, les éléments proches les uns des autres seront mis à côté les uns des autres et donc comparés. Par conséquent, on pourra aisément voir si on peut les combiner/fusionner."     },
           {
             "subtitle": "Plus-value pour l’entreprise",
             "content": "Cette compétence est utile dans la vie d’une entreprise pour de multiples raisons, notamment la maintenabilité du code et son évolution. Avec un code clair et séparé de manière claire dans un modèle/design précis, un nouveau développeur peut aisément comprendre comment le code fonctionne, et par conséquent travailler dessus de manière rapide et efficace. De plus, les bugs sont généralement plus vite repérés et neutralisés. Avoir un logiciel/site avec moins de bugs pour les clients et des améliorations plus rapides apporte une plus-value indéniable à l’entreprise."
