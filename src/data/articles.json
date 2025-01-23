@@ -6,7 +6,7 @@
     "subsections": [
       {
         "subtitle": "Besoin exprimé",
-        "content": "Catalys nous a d’ailleurs demandé s’il était possible de simplifier les processus de synchronisation avec Pôle emploi sur l’agenda TéO. En effet, Catalys devait, après avoir créé des rendez-vous sur TéO, les donner à Pôle emploi pour que Pôle emploi les propose. Ensuite, Pôle emploi devait redonner toutes les informations des personnes allant à ces rendez-vous à Catalys par téléphone, Excel ou Word. Ce processus étant très fastidieux, nous avons proposé un processus d’importation automatique de Pôle emploi vers l’agenda TéO."
+        "content": "Catalys nous a d’ailleurs demandé s’il était possible de simplifier les processus de synchronisation avec Pôle emploi sur l’agenda TéO. En effet, Catalys devait, après avoir créé des rendez-vous sur TéO, les donner à Pôle emploi pour que Pôle emploi les propose. Ensuite, Pôle emploi devait redonner toutes les informations des personnes allant à ces rendez-vous à Catalys par téléphone, Excel ou Word. Ce processus étant très fastidieux, nous avons proposé un processus d’importation automatique de Pôle emploi vers l’agenda TéO"
       },
       {
         "subtitle": "Réunion",
@@ -36,7 +36,7 @@
         "subsections": [
           {
             "subtitle": "Étape 1",
-            "content": "Récupérer les données de Pôle emploi par rapport à un client (ex. : Catalys) donné."
+            "content": "récupérer les données de Pôle emploi par rapport à un client (ex. : Catalys) donné."
           },
           {
             "subtitle": "Étape 2",
@@ -44,7 +44,7 @@
           },
           {
             "subtitle": "Étape 3",
-            "content": "Envoyer ces données formatées dans un importeur avec une liste d’actions à exécuter en fonction des données fournies."
+            "content": "Envoyer ces données formatées dans un importateur avec une liste d’actions à exécuter en fonction des données fournies."
           },
           {
             "subtitle": "Étape 4",
@@ -65,11 +65,11 @@
         "subsections": [
           {
             "subtitle": "S Responsabilité unique",
-            "content": "Séparer chaque classe/Objet de telle sorte qu’il ne s’occupe que d’une chose et ainsi pouvoir le remplacer/retirer/ajouter à un autre projet comme un composant."
+            "content": "Séparer chaque classe/objet de telle sorte qu’il ne s’occupe que d’une chose et ainsi pouvoir le remplacer/retirer/ajouter à un autre projet comme un composant."
           },
           {
             "subtitle": "O Fermé à la modification directe mais ouvert aux extensions",
-            "content": "Dans la mesure du possible éviter qu’on doive modifier directement le code pour maintenir ou faire évoluer le projet en faisant en sorte qu’au contraire on puisse switch facilement les composants pour résoudre ces problèmes."
+            "content": "Dans la mesure du possible, éviter qu’on doive modifier directement le code pour maintenir ou faire évoluer le projet en faisant en sorte qu’au contraire on puisse switch facilement les composants pour résoudre ces problèmes."
           },
           {
             "subtitle": "L Substitution",
@@ -85,8 +85,8 @@
           },
           {
             "subtitle": "Exemple de la compétence mise en œuvre",
-            "content": "Dans la réalisation par rapport à Pôle Emploi, j’ai restructuré mon code en différentes classes et fonctions exerçant des responsabilités uniques, ce qui m’a permis de faire du code propre. Concrètement, toutes les étapes de l’après Réunion étaient faites dans plusieurs classes mais les responsabilités n’étaient pas bien séparées. Après les avoir réparties dans les étapes, j’ai pu permettre de réutiliser ces composants (classes) pour de futures réalisations et une maintenance ou modification nettement plus facile."
-             },
+            "content": "Dans la réalisation par rapport à Pôle Emploi, j’ai restructuré mon code en différentes classes et fonctions exerçant des responsabilités uniques, ce qui m’a permis de faire du code propre. Concrètement, toutes les étapes de l’après-réunion étaient faites dans plusieurs classes mais les responsabilités n’étaient pas bien séparées. Après les avoir réparties dans les étapes, j’ai pu permettre de réutiliser ces composants (classes) pour de futures réalisations et une maintenance ou modification nettement plus facile."
+           },
               {
                 "subtitle": "Regard Critique et évolution",
                 "content": "Je n’ai pas réussi à appliquer 100% de cette compétence au début ou même à l’heure actuelle. Cette compétence a de nombreux aspects complexes et subtils. J’ai réussi à bien l’appliquer dans mes projets étudiants que je maîtrisais bien, mais pas avec cet autre langage qu’est JavaScript. Cette compétence étant la pierre angulaire de mon expertise d’ingénierie logicielle, il est nécessaire que je la perfectionne au fur et à mesure de mes expériences. Elle sera au cœur de mes projets personnels ou professionnels."
@@ -100,7 +100,8 @@
         "subsections": [
           {
             "subtitle": "Définition",
-            "content": "le Refactoring consiste principalement à changer la manière d’exécuter le code, pour soit définir une fonction, que l’on va appeler à différents endroits, plutôt que de définir plusieurs fonctions qui font exactement la même chose à des endroits différents du code. Soit généraliser le code pour pouvoir le mettre dans une seule fonction appelée avec différents paramètres. À cette fin, il est souvent nécessaire de nettoyer le code, et de le séparer en sections distinctes claires. Au travers de ce travail de séparation, les éléments proches les uns des autres seront mis à côté les uns des autres et donc comparés. Par conséquent, on pourra aisément voir si on peut les combiner/fusionner."     },
+            "content": "Le Refactoring consiste principalement à changer la manière d’exécuter le code, pour soit définir une fonction, que l’on va appeler à différents endroits, plutôt que de définir plusieurs fonctions qui font exactement la même chose à des endroits différents du code. Soit généraliser le code pour pouvoir le mettre dans une seule fonction appelée avec différents paramètres. À cette fin, il est souvent nécessaire de nettoyer le code, et de le séparer en sections distinctes claires. Au travers de ce travail de séparation, les éléments proches les uns des autres seront mis à côté les uns des autres et donc comparés. Par conséquent, on pourra aisément voir si on peut les combiner/fusionner."     
+          },
           {
             "subtitle": "Plus-value pour l’entreprise",
             "content": "Cette compétence est utile dans la vie d’une entreprise pour de multiples raisons, notamment la maintenabilité du code et son évolution. Avec un code clair et séparé de manière claire dans un modèle/design précis, un nouveau développeur peut aisément comprendre comment le code fonctionne, et par conséquent travailler dessus de manière rapide et efficace. De plus, les bugs sont généralement plus vite repérés et neutralisés. Avoir un logiciel/site avec moins de bugs pour les clients et des améliorations plus rapides apporte une plus-value indéniable à l’entreprise."
@@ -111,7 +112,7 @@
           },
           {
             "subtitle": "les plans pour l’amélioration",
-            "content": "Il faut que je sache/connaisse plus de design pattern (plan de structure du code) différents afin de respecter le design utilisé dans l’architecture et ne pas la corrompre/salir. J’ai besoin de voir les choses avec plus de recul pour pouvoir mieux préparer au long terme le code et par conséquent réduire le nombre de restructuration/reformatage nécessaires."
+            "content": "Il faut que je sache/connaisse plus de design pattern (plan de structure du code) différents afin de respecter le design utilisé dans l’architecture et ne pas la corrompre/salir. J’ai besoin de voir les choses avec plus de recul pour pouvoir mieux préparer au long terme le code et, par conséquent, réduire le nombre de restructuration/reformatage nécessaires."
           }
         ]
       },
@@ -135,7 +136,7 @@
             
           {
             "subtitle": "La rigueur",
-            "content": "La rigueur est une qualité que je m'efforce d'appliquer à tous les aspects de ma vie. Dans un contexte professionnel, cela signifie travailler de manière méthodique, respecter les procédures et les normes établies, et maintenir un haut niveau de précision dans tout ce que je fais. Je crois fermement qu'une bonne organisation et une planification efficace sont la clé pour atteindre des résultats de qualité. J'attache également une grande importance à la vérification des détails, car cela garantit l'exactitude. Plus qu'une qualité j'aime a penser que la rigueur est une discipline qu'il faut maintenir."
+            "content": "La rigueur est une qualité que je m'efforce d'appliquer à tous les aspects de ma vie. Dans un contexte professionnel, cela signifie travailler de manière méthodique, respecter les procédures et les normes établies, et maintenir un haut niveau de précision dans tout ce que je fais. Je crois fermement qu'une bonne organisation et une planification efficace sont la clé pour atteindre des résultats de qualité. J'attache également une grande importance à la vérification des détails, car cela garantit l'exactitude. Plus qu'une qualité, j'aime à penser que la rigueur est une discipline qu'il faut maintenir."
           }
         ]
       },
@@ -143,7 +144,7 @@
       {
         "id": "summary",
         "title": "L'état de l'art de mes compétences",
-        "content": "Actuellement, je me spécialise dans le développement web applicatif, principalement en PHP et TypeScript, où j'ai acquis une solide expertise. L'une de mes compétences clés est le refactoring, une pratique qui me permet de restructurer et d'optimiser le code existant, garantissant des applications plus efficaces et maintenables. En plus des compétences techniques, je m'appuie sur des qualités humaines telles que l'empathie, la rigueur, et l'honnêteté, qui enrichissent mes collaborations professionnelles. Le refactoring reste cependant la compétence qui me démarque le plus, car elle reflète ma capacité à améliorer continuellement les bases existantes.",
+        "content": "Actuellement, je me spécialise dans le développement web applicatif, principalement en PHP et TypeScript, où j'ai acquis une solide expertise. L'une de mes compétences clés est le refactoring, une pratique qui me permet de restructurer et d'optimiser le code existant, garantissant des applications plus efficaces et maintenables. En plus des compétences techniques, je m'appuie sur des qualités humaines telles que l'empathie, la rigueur et l'honnêteté, qui enrichissent mes collaborations professionnelles. Le refactoring reste cependant la compétence qui me démarque le plus, car elle reflète ma capacité à améliorer continuellement les bases existantes.",
         "subsections": [
           {
             "subtitle": "Mes projets d’acquisition de compétences",
@@ -188,7 +189,7 @@
         "subsections": [
           {
             "subtitle": "Contexte de mise en place",
-            "content": "le DDD se divise en deux niveaux : un niveau se concentrant sur la définition le cadre des besoins du métier, avec toutes les différrentes zones de besoin du métier et comment ils interragisent entre eux. Par exemple si on veux faire une application téléphone pour des médecins, ils ont besoin d'un répertoire de leurs clients, d'une bibliothèque de connaissance médicales et d'un agenda pour organiser leurs rendez-vous. Et tout ça doit se faire avec un entretien avec un médecin afin d'être au plus proche des réels besoin du médecin. L'autre niveau quant a lui se concentre sur chaque zone pour voir plus en détail ce dont il y a besoin."
+            "content": "Le DDD se divise en deux niveaux : un niveau se concentrant sur la définition du cadre des besoins du métier, avec toutes les différentes zones de besoin du métier et comment ils interagissent entre eux. Par exemple, si on veut faire une application téléphone pour des médecins, ils ont besoin d'un répertoire de leurs clients, d'une bibliothèque de connaissances médicales et d'un agenda pour organiser leurs rendez-vous. Et tout ça doit se faire avec un entretien avec un médecin afin d'être au plus proche des réels besoins du médecin. L'autre niveau, quant à lui, se concentre sur chaque zone pour voir plus en détail ce dont il y a besoin."
           },
           {
             "subtitle": "Avantages et défis",
@@ -196,7 +197,7 @@
           },
           {
             "subtitle": "Applications dans la pratique",
-            "content": "le DDD est particulièrement utile dans les projets complexes où une compréhension approfondie du domaine est essentielle. Son approche centrée sur le domaine aide à concevoir des systèmes modulaires et évolutifs, tout en évitant les solutions génériques qui manquent de contexte métier. Et ainsi, permet une offre beaucoup plus attractive sur le marché, a condition de bien se mettre en valeur. "
+            "content": "Le DDD est particulièrement utile dans les projets complexes où une compréhension approfondie du domaine est essentielle. Son approche centrée sur le domaine aide à concevoir des systèmes modulaires et évolutifs, tout en évitant les solutions génériques qui manquent de contexte métier. Et ainsi, permet une offre beaucoup plus attractive sur le marché, à condition de bien se mettre en valeur. "
           }
         ]
       },
