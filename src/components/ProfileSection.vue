@@ -19,6 +19,12 @@
       </div>
       <br>
       <div class="self-start">
+        <p v-for="item in props.contacts" class="text-xl text-black dark:text-gray-300 text-left ">
+          {{ item }}
+        </p>
+      </div>
+      <br>
+      <div class="self-start">
         <p v-for="item in props.refLinks" class="text-xl text-black dark:text-gray-300 text-left ">
           <a :href="item.link" target="_blank">{{ item.name }}</a>
         </p>
@@ -38,7 +44,10 @@
     refLinks:{
       type:Array,
       default:[{name:"code source du site",link:"https://github.com/alenop/portfolioCode"},{name:"Profil linkedin",link:"https://www.linkedin.com/in/pierre-sorli/"}]
-
+    },
+    contacts:{
+      type:Array,
+      default:['mail : pierre.sorli@gmail.com']
     }
 
   })
