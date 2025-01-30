@@ -49,8 +49,12 @@ const router = useRouter();
 
 // Method to navigate based on the provided ID
 function navigateTo(id) {
+  if(id === 'contact') {
+    router.push({name:'contact'})
+  }else {
     router.push({ name: 'article', params: { id } });
-}
+  }
+  }
 if(window.location.href === "http://localhost:5173/"){
   navigateTo("summary");
 }
@@ -74,6 +78,9 @@ const menus = [
   },
   {
     label: "Personnalité",id:"values"
+  },
+  {
+    label:'contact',id:'contact'
   }
 ];
 </script>
