@@ -63,13 +63,14 @@ import { ref, onMounted, watch } from 'vue';
 import articles from '@/data/articles.json';
 import SummaryWidget from '@/components/SummaryWidget.vue';
 
-const props = defineProps({ id: { type: String, required: true } });
+const props = defineProps({ id: { type: String, required: false } });
 const article = ref(null);
 const highlightedSubtitle = ref(null);
 const refToScrollTop = ref(null);
 
 onMounted(() => {
-  article.value = articles.find((a) => a.id === props.id);
+  const articleToSeeId = props.id ? props.id : 'summary';
+  article.value = articles.find((a) => a.id === articleToSeeId);
 });
 
 watch(
