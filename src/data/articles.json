@@ -2,11 +2,11 @@
   {
     "id":"automatisation",
     "subtitle": "Automatisation des rendez-vous",
-    "content": "L’entreprise TéO dispose d’un logiciel de gestion d’activité nommé TéO. Il constitue l’essentiel de l’activité de l’entreprise. Grâce à ce logiciel de gestion, des entreprises telles que des centres de bilans de compétences, des organismes de formation ou des centres médico-sociaux peuvent gérer leurs rendez-vous. Par exemple, Catalys Conseil, Réseau Ecna ou Maia, et bien d’autres.",
+    "content": "L’entreprise TéO dispose d’un logiciel de gestion d’activité nommé TéO. Il constitue l’essentiel de l’activité de l’entreprise. Grâce à ce logiciel de gestion, des entreprises telles que des centres de bilans de compétences, des organismes de formation ou des centres médico-sociaux peuvent gérer leurs rendez-vous. Par exemple, Réseau Ecna ou Maia, et bien d’autres.",
     "subsections": [
       {
         "subtitle": "Besoin exprimé",
-        "content": "Catalys nous a d’ailleurs demandé s’il était possible de simplifier les processus de synchronisation avec Pôle emploi sur l’agenda TéO. En effet, Catalys devait, après avoir créé des rendez-vous sur TéO, les donner à Pôle emploi pour que Pôle emploi les propose. Ensuite, Pôle emploi devait redonner toutes les informations des personnes allant à ces rendez-vous à Catalys par téléphone, Excel ou Word. Ce processus étant très fastidieux, nous avons proposé un processus d’importation automatique de Pôle emploi vers l’agenda TéO"
+        "content": "Cette société nous a d’ailleurs demandé s’il était possible de simplifier les processus de synchronisation avec Pôle emploi sur l’agenda TéO. En effet, la société devait, après avoir créé des rendez-vous sur TéO, les donner à Pôle emploi pour que Pôle emploi les propose. Ensuite, Pôle emploi devait redonner toutes les informations des personnes allant à ces rendez-vous à cette société par téléphone, Excel ou Word. Ce processus étant très fastidieux, nous avons proposé un processus d’importation automatique de Pôle emploi vers l’agenda TéO"
       },
       {
         "subtitle": "Réunion",
@@ -36,7 +36,7 @@
         "subsections": [
           {
             "subtitle": "Étape 1",
-            "content": "récupérer les données de Pôle emploi par rapport à un client (ex. : Catalys) donné."
+            "content": "récupérer les données de Pôle emploi par rapport à un client donné."
           },
           {
             "subtitle": "Étape 2",

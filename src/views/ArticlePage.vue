@@ -1,33 +1,56 @@
 <template>
-  <div v-if="article" class="article-container text-black dark:text-gray-300 text-xl flex">
-    <!-- Summary Section on the Left -->
-    <div class="summary sticky w-1/4 p-4">
-      <h2 class="text-2xl font-semibold">Summary</h2>
-      <ul>
-        <li v-for="subsection in article.subsections" :key="subsection.subtitle">
-          <a class="dark:text-gray-300" href="#" @click.prevent="scrollToSubsection(subsection)">
-            {{ subsection.subtitle }}
-          </a>
-        </li>
-      </ul>
+  <div v-if="article" class="article-container text-black dark:text-gray-300 text-xl flex flex-col md:flex-row" ref="refToScrollTop">
+    
+<!-- Back to Top Widget -->
+    <div
+      class="fixed left-2 top-1/2 transform -translate-y-1/2 z-50 bg-white dark:bg-gray-800 shadow-md rounded-full p-2 hover:bg-indigo-600 hover:text-white transition cursor-pointer"
+      @click="scrollToTop"
+      title="Back to top"
+    >
+      ⬆️
     </div>
 
-    <!-- Article Content Section on the Right -->
-    <div class="content w-3/4 p-4">
-      <h1 class="text-4xl">{{ article.title }}</h1>
-      <br>
-      <p>{{ article.content }}</p>
+    <!-- Summary Widget on the Left -->
+    <SummaryWidget
+      :subsections="article.subsections"
+      :highlighted="highlightedSubtitle"
+      @scrollTo="scrollToSubsection"
+      class="md:w-1/4 w-full p-4 top-4" 
+      
+    />
 
-      <!-- Loop through the subsections of the article -->
-      <div v-for="subsection in article.subsections" :key="subsection.subtitle" class="subsection">
-        <h2 :class="{ highlight: highlightedSubtitle === subsection.subtitle }" :id="subsection.subtitle" class="text-2xl">{{ subsection.subtitle }}</h2>
+    <!-- Article Content -->
+    <div :class="[showSummary ? 'md:w-3/4' : 'w-full', 'p-4']">
+      <h1 class="text-4xl mb-4">{{ article.title }}</h1>
+      <p class="mb-8">{{ article.content }}</p>
+
+      <!-- Subsections -->
+      <div
+        v-for="subsection in article.subsections"
+        :key="subsection.subtitle"
+        class="subsection mb-6"
+      >
+        <h2
+          :id="subsection.subtitle"
+          :class="{ highlight: highlightedSubtitle === subsection.subtitle }"
+          class="text-2xl mb-2"
+        >
+          {{ subsection.subtitle }}
+        </h2>
         <p>{{ subsection.content }}</p>
 
-        <!-- If there are further subsections inside a subsection, recursively display them -->
-        <div v-if="subsection.subsections && subsection.subsections.length > 0" class="nested-subsections">
-          <div v-for="nestedSubsection in subsection.subsections" :key="nestedSubsection.subtitle">
-            <h3>{{ nestedSubsection.subtitle }}</h3>
-            <p>{{ nestedSubsection.content }}</p>
+        <!-- Nested Subsections -->
+        <div
+          v-if="subsection.subsections && subsection.subsections.length"
+          class="nested-subsections ml-4 mt-4"
+        >
+          <div
+            v-for="nested in subsection.subsections"
+            :key="nested.subtitle"
+            class="mb-2"
+          >
+            <h3 class="text-xl">{{ nested.subtitle }}</h3>
+            <p>{{ nested.content }}</p>
           </div>
         </div>
       </div>
@@ -37,40 +60,38 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
-// Import the articles from JSON file
 import articles from '@/data/articles.json';
+import SummaryWidget from '@/components/SummaryWidget.vue';
 
-// Prop to receive the `id` from the route
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-    default:"values"
-  }
-});
-
+const props = defineProps({ id: { type: String, required: true } });
 const article = ref(null);
 const highlightedSubtitle = ref(null);
+const refToScrollTop = ref(null);
 
-// Load the article based on the id passed as prop
 onMounted(() => {
-  article.value = articles.find((article) => article.id === props.id);
+  article.value = articles.find((a) => a.id === props.id);
 });
 
-// Watch the `id` prop to update the article when the ID changes
 watch(
   () => props.id,
   (newId) => {
-    article.value = articles.find((article) => article.id === newId);
+    article.value = articles.find((a) => a.id === newId);
   },
-  { immediate: true } // Trigger the watcher immediately
+  { immediate: true }
 );
 
-// Function to scroll to a specific subsection when clicked in the summary
+function scrollToTop() {
+  if (refToScrollTop.value) {
+    refToScrollTop.value.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
 function scrollToSubsection(subsection) {
-  const element = document.getElementById(subsection.subtitle);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+  const el = document.getElementById(subsection.subtitle);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
     highlightedSubtitle.value = subsection.subtitle;
   }
 }
@@ -78,49 +99,10 @@ function scrollToSubsection(subsection) {
 
 <style scoped>
 .article-container {
-  display: flex;
-  justify-content: space-between;
   padding: 20px;
 }
-
-.summary {
-  position: sticky;
-  top: 20px;
-  width: 25%;
-  padding-right: 20px;
-  max-height: calc(100vh - 40px);
-  overflow-y: auto; /* Allows scrolling if content exceeds the available space */
-}
-
-.content {
-  width: 70%;
-}
-
-.subsection {
-  margin-top: 20px;
-}
-
 .highlight {
-  background-color: green; /* Highlight background in green */
-  color: white; /* Make the text white when highlighted */
-}
-
-.nested-subsections {
-  margin-left: 20px;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-ul li a {
-  text-decoration: none;
-  color: blue;
-  cursor: pointer;
-}
-
-ul li a:hover {
-  text-decoration: underline;
+  background-color: green;
+  color: white;
 }
 </style>
